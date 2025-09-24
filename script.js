@@ -77,15 +77,29 @@ const songs = [
   document.getElementById("tourHighlight").innerHTML = `
     <h3>Tour Date Spotlight</h3>
     <ul>
-    <li id="cityOslo">Oslo</li>
-    <li id="cityBerlin">Berlin</li>
-    <li id="cityLondon">London</li>
+    <li id="cityOslo">Oslo <span id="osloInfo" style="display:none;"> - Oslo Spektrum, Aug 1</span></li>
+    <li id="cityBerlin">Berlin <span id="berlinInfo" style="display:none;"> - Mercedes-Benz Arena, Aug 5</span></li>
+    <li id="cityLondon">London <span id="londonInfo" style="display:none;"> - O2 Arena, Aug 10</li>
     </ul>
   `;
 
   // Sample event listener for one city
   document.getElementById("cityOslo").addEventListener("click", () => {
-    // Add your code here
+    const info = document.getElementById("osloInfo");
+    // Toggle display between none and inline
+    info.style.display = info.style.display === "none" ? "inline" : "none";
+  });
+
+  document.getElementById("cityBerlin").addEventListener("click", () => {
+    const info = document.getElementById("berlinInfo");
+    // Toggle display between none and inline
+    info.style.display = info.style.display === "none" ? "inline" : "none";
+  });
+
+  document.getElementById("cityLondon").addEventListener("click", () => {
+    const info = document.getElementById("londonInfo");
+    // Toggle display between none and inline
+    info.style.display = info.style.display === "none" ? "inline" : "none";
   });
   
   // Students will need to add one for each remaining city (Berlin and London)
@@ -110,7 +124,18 @@ const songs = [
   `;
   
   document.getElementById("checkEmail").addEventListener("click", () => {
-    // Add your code here
+    // Get the email input value
+    const emailValue = document.getElementById('emailInput').value;
+    const resultDiv = document.getElementById('emailResult');
+    // Simple regex for basic email validation
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (emailPattern.test(emailValue)) {
+      resultDiv.innerText = "Valid email!";
+      resultDiv.style.color = "green";
+    } else {
+      resultDiv.innerText = "Please enter a valid email address.";
+      resultDiv.style.color = "red";
+    }
   });
   
   // 6️⃣ Band Bio Toggle
