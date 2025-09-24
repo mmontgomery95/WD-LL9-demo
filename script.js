@@ -12,6 +12,16 @@ const songs = [
   
   function generateSetlist() {
 // Create generateSetList() function here
+    console.log("Button clicked");
+    // Clear the setlist before adding new items
+    const setlistElement = document.getElementById('setlist');
+    setlistElement.innerHTML = '';
+    // Add each song to the setlist
+    for (let song of songs) {
+      const li = document.createElement('li');
+      li.innerText = song;
+      setlistElement.appendChild(li);
+    }
   }
   
   document.getElementById("generateSetlist").addEventListener("click", generateSetlist);
@@ -25,6 +35,7 @@ const songs = [
   
   function updateCountdown() {
     // create variables define date
+    let diff;
   
     if (diff <= 0) {
     // Create conditional for if statement under this line
